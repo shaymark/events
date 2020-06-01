@@ -11,7 +11,12 @@ import kotlinx.android.synthetic.main.event_list_item.view.*
 
 class EventsAdapter(): RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
-    val eventList: List<EventData> = listOf<EventData>()
+    var eventList: List<EventData> = listOf<EventData>()
+
+    fun updateList(eventList: List<EventData>){
+        this.eventList = eventList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.event_list_item, parent, false))

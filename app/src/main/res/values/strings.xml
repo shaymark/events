@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Events</string>
+    <string name="sms_permission_not_granted">sms premissions not granted !</string>
 </resources>

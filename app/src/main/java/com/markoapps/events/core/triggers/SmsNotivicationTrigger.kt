@@ -23,11 +23,11 @@ class SmsNotificationTrigger(val smsNumber: String?,
         event?.properties!!["smsNumber"] = smsContent.sender
         event?.properties!!["smsContnet"] = smsContent.content
 
-        if(smsNumber != null && smsContent.sender.contains(smsNumber)){
+        if(smsNumber != null && !smsContent.sender.contains(smsNumber)){
             return
         }
 
-        if(smsShouldContain != null && smsContent.content.contains(smsContent.content)) {
+        if(smsShouldContain != null && !smsContent.content.contains(smsContent.content)) {
             return
         }
 

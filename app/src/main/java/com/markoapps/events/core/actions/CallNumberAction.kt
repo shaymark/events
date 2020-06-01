@@ -15,14 +15,10 @@ class CallNumberAction(val numberToCall: String,
         callPhone(numberToCall)
     }
 
-    fun getMainLooper(): Looper {
-        return event!!.context!!.getMainLooper()
-    }
-
-    private val handler: Handler = Handler(getMainLooper())
+    private val handler: Handler = Handler(Looper.getMainLooper())
 
     private fun callPhone(numberToCall: String) {
-        CallsManager.callPhone(event!!.context!!, numberToCall)
+        CallsManager.callPhone(event!!.context!!, event!!.properties["smsNumber"] as String)
         if(hangoutAfterSeconds != null) {
            hangOutPhoneCall(numberToCall, hangoutAfterSeconds)
         }
